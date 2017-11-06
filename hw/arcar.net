@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/wykys/projects/vut-arcar/hw/arcar.sch)
-    (date "Mon 06 Nov 2017 02:52:43 CET")
+    (date "Mon 06 Nov 2017 03:04:25 CET")
     (tool "Eeschema no-vcs-found-d5290bd~61~ubuntu16.04.1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -132,7 +132,7 @@
       (tstamp 59F70E0F))
     (comp (ref J1)
       (value USB_B_Micro)
-      (footprint Connectors:USB_Micro-B_10103594-0001LF)
+      (footprint Connectors_USB:USB_Micro-B_Wuerth-614105150721_Vertical_CircularHoles)
       (libsource (lib Connector) (part USB_B_Micro))
       (sheetpath (names /) (tstamps /))
       (tstamp 59F77EE6))
@@ -305,7 +305,7 @@
       (tstamp 5A017A8C))
     (comp (ref AFF1)
       (value LTS-6960HR)
-      (footprint Displays_7-Segment:LTS-69xx)
+      (footprint Displays_7-Segment:7SegmentLED_LTS6760_LTS6780)
       (datasheet Display/LTC-6960HR.pdf)
       (libsource (lib Display) (part LTS-6960HR))
       (sheetpath (names /) (tstamps /))
