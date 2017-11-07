@@ -736,9 +736,9 @@ F 3 "" H 7900 2700 50  0001 C CNN
 	1    7900 2700
 	1    0    0    -1  
 $EndComp
-Text Label 4450 1950 2    40   ~ 0
-MOTOR_PWM1
 Text Label 4450 2050 2    40   ~ 0
+MOTOR_PWM1
+Text Label 4450 1950 2    40   ~ 0
 MOTOR_PWM2
 $Comp
 L C C3
@@ -1638,17 +1638,6 @@ Connection ~ 7950 1500
 Connection ~ 8300 1600
 Connection ~ 7950 1100
 $Comp
-L MCP1804T-3302I/DB U8
-U 1 1 5A013302
-P 10150 1100
-F 0 "U8" H 10150 1342 50  0000 C CNN
-F 1 "MCP1804T-3302I/DB" H 10150 1251 50  0000 C CNN
-F 2 "TO_SOT_Packages_SMD:SOT-223" H 10150 1450 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20002200D.pdf" H 10150 1350 50  0001 C CNN
-	1    10150 1100
-	1    0    0    -1  
-$EndComp
-$Comp
 L C C18
 U 1 1 5A013309
 P 9650 1550
@@ -1739,6 +1728,17 @@ F 1 "VCC" H 1405 5466 40  0000 C CNN
 F 2 "" H 1400 5300 50  0001 C CNN
 F 3 "" H 1400 5300 50  0001 C CNN
 	1    1400 5300
+	1    0    0    -1  
+$EndComp
+$Comp
+L MCP1804T-3302I/DB U8
+U 1 1 5A013254
+P 10150 1100
+F 0 "U8" H 10150 1342 50  0000 C CNN
+F 1 "MCP1804T-3302I/DB" H 10150 1251 50  0000 C CNN
+F 2 "TO_SOT_Packages_SMD:SOT-223-3_TabPin2" H 10150 1450 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20002200D.pdf" H 10150 1350 50  0001 C CNN
+	1    10150 1100
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
