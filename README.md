@@ -1,5 +1,4 @@
-# vut-arcar
-VUT UREL Autonomous Racing Car
+# VUT UREL Autonomous Racing Car 
 
 Top view.
 ![demo](/img/top.png)
