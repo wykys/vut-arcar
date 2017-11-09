@@ -1,3 +1,4 @@
+Designator,Package,Quantity,Designation,Quantity * 7,Supplier and ref
 P1,IDC_Header_Straight_6pins,1,AVR_ISP_02X03,7,https://www.tme.eu/cz/details/t821-1-06-s1/konektory-idc/amphenol/t821106a1s100ceu/
 U2,TQFP-32_7x7mm_Pitch0.8mm,1,ATMEGA328PB-AU,7,https://www.tme.eu/cz/details/atmega328pb-an/8-bit-avr-family/microchip-atmel/
 "C12,C1,C2,C3,C4,C5,C6,C7,C10,C11,C13",C_0805_HandSoldering,11,100n,77,https://www.tme.eu/cz/details/cc0805jrx7r9104/kondenzatory-mlcc-smd-0805/yageo/cc0805jrx7r9bb104/
