@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+# wykys 9.11.2017
+# script that finds in bom.csv url of distributors and
+# creates *.csv for individual distributors
 
 url = '../bom/'
 boom_file = 'arcar.csv'
