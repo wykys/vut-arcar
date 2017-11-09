@@ -1,0 +1,18 @@
+P1,IDC_Header_Straight_6pins,1,AVR_ISP_02X03,7,https://www.tme.eu/cz/details/t821-1-06-s1/konektory-idc/amphenol/t821106a1s100ceu/
+U2,TQFP-32_7x7mm_Pitch0.8mm,1,ATMEGA328PB-AU,7,https://www.tme.eu/cz/details/atmega328pb-an/8-bit-avr-family/microchip-atmel/
+"C12,C1,C2,C3,C4,C5,C6,C7,C10,C11,C13",C_0805_HandSoldering,11,100n,77,https://www.tme.eu/cz/details/cc0805jrx7r9104/kondenzatory-mlcc-smd-0805/yageo/cc0805jrx7r9bb104/
+"C17,C15",CP_Radial_D4.0mm_P1.50mm,2,4700u/35V,14,https://www.tme.eu/cz/details/km4700_35/elektrolyticke-kondenzatory-tht-105c/samxon/km-4700u35v/
+"D1,D2",Pin_Header_Straight_1x02_Pitch2.54mm,4,LED YELLOW,28,https://www.tme.eu/cz/details/l-53sydk/led-diody-tht-5mm/kingbright-electronic/
+"D3,D4",Pin_Header_Straight_1x02_Pitch2.54mm,4,LED RED,28,https://www.tme.eu/cz/details/ll-503vd2e-v1-4d/led-diody-tht-5mm/lucky-light/
+U3,QFN-28-1EP_5x5mm_Pitch0.5mm,1,CP2102,7,https://www.tme.eu/cz/details/cp2102-gm/integrovane-obvody-interface-usb/silicon-labs/cp2102-gmr/
+SW1,SW_PUSH_6mm_h5mm,1,SW_Push,7,https://www.tme.eu/cz/details/tactm-619p-f/mikrospinace-tact/ninigi/
+"C8,C9",C_0805_HandSoldering,2,10n,14,https://www.tme.eu/cz/details/cl21b103kbannnd/kondenzatory-mlcc-smd-0805/samsung/
+C16,C_0805_HandSoldering,1,470n,7,https://www.tme.eu/cz/details/cl21b474kbfnnng/kondenzatory-mlcc-smd-0805/samsung/
+"D5,D6,D7,D8,D9",D_SMA,5,SK32SMA,35,https://www.tme.eu/cz/details/sk32sma-dio/diody-schottky-smd/diotec-semiconductor/sk32sma/
+"R1,R4,R5,R9",R_0805_HandSoldering,4,10k,28,https://www.tme.eu/cz/details/smd0805-10k/rezistory-smd-0805/royal-ohm/0805s8j0103t5e/
+"R2,R3",R_0805_HandSoldering,2,4k7,14,https://www.tme.eu/cz/details/rc0805jr-074k7/rezistory-smd-0805/yageo/rc0805jr-074k7l/
+"R6,R7,R8,R10",R_0805_HandSoldering,4,1k,28,https://www.tme.eu/cz/details/smd0805-1k/rezistory-smd-0805/royal-ohm/0805s8j0102t5e/
+U4,SOIC-16_3.9x9.9mm_Pitch1.27mm,1,ULN2003A,7,https://www.tme.eu/cz/details/uln2003adr/drivery-integrovane-obvody/texas-instruments/
+U7,RN4871,1,RN4871,7,https://www.tme.eu/cz/details/rn4871-v_rm118/moduly-bluetooth/microchip-technology/
+"M1,M2",M3 dira dira,2,sloupky,14,https://www.tme.eu/cz/details/tff-m3x25_dr113/distancni-prvky-kovove/dremec/113x25/
+"M1,M2","M3 šroub, kdyžtak vyberte jiný, možná bude hlava moc vleká",4,šrouby,28,https://www.tme.eu/cz/details/b3x6_bn20/srouby/bossard/1021168/
