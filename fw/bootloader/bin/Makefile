@@ -5,7 +5,7 @@ NAME = PRJ
 endif
 
 SRC = ../src/
-LIB = ../lib/
+LIB = ../inc/
 
 MCU = atmega328pb
 SETTINGS = -DF_CPU=8000000UL -DBAUD_RATE=57600 -DUART=1 -DLED_START_FLASHES=3
