@@ -5,7 +5,7 @@ NAME = BOOTLOADER
 export
 
 BIN = bin
-CHIP = m328p
+CHIP = m328pb
 PROG = avrisp2
 ELF = $(BIN)/$(NAME).elf
 AVRDUDE = avrdude -p $(CHIP) -c $(PROG)
@@ -14,7 +14,6 @@ AVRDUDE = avrdude -p $(CHIP) -c $(PROG)
 .PHONY: flash
 .PHONY: clean
 .PHONY: fuses-int-8MHz
-.PHONY: fuses-ext-16MHz
 .PHONY: terminal
 .PHONY: dump_eeprom
 .PHONY: flash_all
@@ -29,11 +28,6 @@ clean:
 fuses-int-8MHz:
 	$(AVRDUDE) -U lfuse:w:0xe2:m -U hfuse:w:0xd4:m -U efuse:w:0xff:m
 	@echo "Int 8MHz, BOOT 512B"
-
-fuses-ext-16MHz:
-	$(AVRDUDE) -U lfuse:w:0xff:m -U hfuse:w:0xd4:m -U efuse:w:0xff:m
-	@echo "Ext 16MHz, BOOT 512B"
-
 terminal:
 	$(AVRDUDE) -t
 
