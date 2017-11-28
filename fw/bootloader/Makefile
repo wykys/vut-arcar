@@ -6,7 +6,7 @@ export
 
 BIN = bin
 CHIP = m328pb
-PROG = avrisp2
+PROG = usbasp
 ELF = $(BIN)/$(NAME).elf
 AVRDUDE = avrdude -p $(CHIP) -c $(PROG)
 
