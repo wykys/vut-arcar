@@ -1,0 +1,10 @@
+$$$ # cmd mode
+SN,name # nastaví jméno
+SS,C0 # set servises
+D # servis info
+V # HW info
+SP,PIN max 6
+
+JB,1,addd 1 neveřejná 0 veřejná přidá
+JD zobrazí seznam
+a je to :D
