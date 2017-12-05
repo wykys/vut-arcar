@@ -18,7 +18,7 @@ void print_hex(uint16_t cislo)
     {
         nible = (uint8_t) ((cislo >> 12) & 0x000F);
         cislo <<= 4;
-        usb_putc(nible2hex(nible));
+        putc(nible2hex(nible));
     }
 }
 
@@ -32,7 +32,7 @@ void print_int(int cislo, char znaminko, char nula, int pocet_mist)
     // pokud máme vypsat před číslo znamínko
     if (znaminko)
     {
-        usb_putc((cislo >= 0) ? '+' : '-');
+        putc((cislo >= 0) ? '+' : '-');
     }
 
     // pokud je vypnutá predikce nul
@@ -60,19 +60,19 @@ void print_int(int cislo, char znaminko, char nula, int pocet_mist)
         {
             if (pocet_mist != -1 && (poc_cislo || (i+1) != len))
             {
-                usb_putc(' ');
+                putc(' ');
             }
         }
         else
         {
             state = 0;
-            usb_putc(buf[i]);
+            putc(buf[i]);
         }
 
     }
     if (state)
     {
-        usb_putc('0');
+        putc('0');
     }
 }
 
@@ -101,7 +101,7 @@ void print_double(double cislo, char znaminko, char nula, int mista_pred_carkou,
     cela = (znam == '-') ? -1 * cela : cela;
 
     print_int(cela, znaminko, nula, mista_pred_carkou);
-    usb_putc(',');
+    putc(',');
     print_int(desetinna, '\0', '0', mista_za_carkou);
 
 }
@@ -134,7 +134,7 @@ void printf(char str[], ...)
             if (str[i+1] == '%')
             {
                 i++;
-                usb_putc('%');
+                putc('%');
             }
             // když jde o proměnnou
             else
@@ -198,7 +198,7 @@ void printf(char str[], ...)
                 // podle typu s nimi naložíme
                 if (str[j] == 'c')
                 {
-                    usb_putc(va_arg(ap, int));
+                    putc(va_arg(ap, int));
                 }
                 else if (str[j] == 'H')
                 {
@@ -217,7 +217,7 @@ void printf(char str[], ...)
                 {
                     str_p = va_arg(ap, char *);
                     for (j=0; *(str_p + j) != '\0'; j++)
-                        usb_putc(*(str_p + j));
+                        putc(*(str_p + j));
                 }
 
                 // vynulovní formátovacích proměnných
@@ -230,7 +230,7 @@ void printf(char str[], ...)
         }
         else
         {
-            usb_putc(str[i]);
+            putc(str[i]);
         }
     }
     va_end(ap);

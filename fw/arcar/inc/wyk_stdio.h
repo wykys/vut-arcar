@@ -15,7 +15,10 @@ extern "C" {
 
 #include <stdarg.h>
 #include <avr/io.h>
+#include "bluetooth.h"
 #include "usb.h"
+
+#define putc(x) {usb_putc(x); bluetooth_putc(x);}
 
 // ========================================================
 void printf(char str[], ...);
