@@ -25,9 +25,6 @@ typedef enum {
     I2C_READ
 } i2c_mode_t;
 
-#define I2C_READ  1
-#define I2C_WRITE 0
-
 // ========================================================
 void i2c_init(void);
 state_t i2c_send_address(uint8_t addr, i2c_mode_t mode);
