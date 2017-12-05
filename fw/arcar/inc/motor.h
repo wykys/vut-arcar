@@ -16,9 +16,9 @@ extern "C" {
 #include "settings.h"
 #include <avr/io.h>
 
-#define MOTOR_ERR_PIN   (1<<PB0)
-#define MOTOR_DIR_PIN  (1<<PB2)
-#define MOTOR_PWM_PIN  (1<<PB1)
+#define MOTOR_ERR_PIN  (1<<PB0)
+#define MOTOR_DIR_PIN  (1<<PB1)
+#define MOTOR_PWM_PIN  (1<<PB2)
 
 #define MOTOR_DDR   DDRB
 #define MOTOR_PIN   PINB
@@ -30,6 +30,8 @@ extern "C" {
 // ========================================================
 void motor_init(void);
 void motor_power(uint8_t power, uint8_t direction);
+void motor_forward(uint8_t power);
+void motor_reverse(uint8_t power);
 // ========================================================
 
 #ifdef __cplusplus
