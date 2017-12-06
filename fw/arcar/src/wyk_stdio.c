@@ -101,9 +101,11 @@ void print_double(double cislo, char znaminko, char nula, int mista_pred_carkou,
     cela = (znam == '-') ? -1 * cela : cela;
 
     print_int(cela, znaminko, nula, mista_pred_carkou);
-    putc(',');
-    print_int(desetinna, '\0', '0', mista_za_carkou);
-
+    if (mista_za_carkou)
+    {
+        putc(',');
+        print_int(desetinna, '\0', '0', mista_za_carkou);
+    }
 }
 
 // printf funkce
