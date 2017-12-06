@@ -10,15 +10,13 @@ from higher level stuff, like reading/writing LSM9DS1 registers to low-level,
 hardware reads and writes. Both SPI and I2C handler functions can be found
 towards the bottom of this file.
 
-Development environment specifics:
-    IDE: Arduino 1.6
-    Hardware Platform: Arduino Uno
-    LSM9DS1 Breakout Version: 1.0
-
 This code is beerware; if you see me (or any other SparkFun employee) at the
 local, and you've found our code helpful, please buy us a round!
 
 Distributed as-is; no warranty is given.
+
+wykys refactored for VUT-ARCAR
+
 ******************************************************************************/
 
 #include "LSM9DS1.h"
@@ -28,28 +26,14 @@ Distributed as-is; no warranty is given.
 #define LSM9DS1_COMMUNICATION_TIMEOUT 1000
 
 float magSensitivity[4] = {0.00014, 0.00029, 0.00043, 0.00058};
-//extern Serial pc;
 
 LSM9DS1::LSM9DS1(uint8_t xgAddr, uint8_t mAddr)
-    //:i2c(sda, scl)
 {
     init(xgAddr, mAddr); // dont know about 0xD6 or 0x3B
 }
-/*
-LSM9DS1::LSM9DS1()
-{
-    init(IMU_MODE_I2C, LSM9DS1_AG_ADDR(1), LSM9DS1_M_ADDR(1));
-}
-
-LSM9DS1::LSM9DS1(interface_mode interface, uint8_t xgAddr, uint8_t mAddr)
-{
-    init(interface, xgAddr, mAddr);
-}
-*/
 
 void LSM9DS1::init(uint8_t xgAddr, uint8_t mAddr)
 {
-    settings.device.commInterface = IMU_MODE_I2C;
     settings.device.agAddress = xgAddr;
     settings.device.mAddress = mAddr;
 
@@ -976,20 +960,29 @@ void LSM9DS1::constrainScales()
     }
 }
 
+
+
+
+
+
 void LSM9DS1::xgWriteByte(uint8_t subAddress, uint8_t data)
 {
-    printf("w");
-    I2CwriteByte(_xgAddress, subAddress, data);
+    //I2CwriteByte(_xgAddress, subAddress, data);
+    i2c_write(_xgAddress, subAddress, &data, 1);
 }
 
 void LSM9DS1::mWriteByte(uint8_t subAddress, uint8_t data)
 {
-    return I2CwriteByte(_mAddress, subAddress, data);
+    //I2CwriteByte(_mAddress, subAddress, data);
+    i2c_write(_mAddress, subAddress, &data, 1);
 }
 
 uint8_t LSM9DS1::xgReadByte(uint8_t subAddress)
 {
-    return I2CreadByte(_xgAddress, subAddress);
+    //return I2CreadByte(_xgAddress, subAddress);
+    char data;
+    i2c_read(_xgAddress, subAddress, (uint8_t *) &data, 1);
+    return data;
 }
 
 void LSM9DS1::xgReadBytes(uint8_t subAddress, uint8_t * dest, uint8_t count)
@@ -999,7 +992,10 @@ void LSM9DS1::xgReadBytes(uint8_t subAddress, uint8_t * dest, uint8_t count)
 
 uint8_t LSM9DS1::mReadByte(uint8_t subAddress)
 {
-    return (uint8_t) I2CreadByte(_mAddress, subAddress);
+    //return (uint8_t) I2CreadByte(_mAddress, subAddress);
+    char data;
+    i2c_read(_mAddress, subAddress, (uint8_t *) &data, 1);
+    return data;
 }
 
 void LSM9DS1::mReadBytes(uint8_t subAddress, uint8_t *dest, uint8_t count)
@@ -1008,27 +1004,12 @@ void LSM9DS1::mReadBytes(uint8_t subAddress, uint8_t *dest, uint8_t count)
 }
 
 
-void LSM9DS1::I2CwriteByte(uint8_t address, uint8_t subAddress, uint8_t data)
-{
-    i2c_write(address, subAddress, &data, 1);
-}
-
-uint8_t LSM9DS1::I2CreadByte(uint8_t address, uint8_t subAddress)
-{
-    char data;
-    i2c_read(address, subAddress, (uint8_t *) &data, 1);
-    return data;
-}
 
 uint8_t LSM9DS1::I2CreadBytes(uint8_t address, uint8_t subAddress, uint8_t * dest, uint8_t count)
 {
     int i;
-    char temp_dest[count];
-    //char temp[1] = {subAddress};
-    //i2c.write(address, temp, 1);
-    //i2c.read(address, temp_dest, count);
-
-    i2c_read(address, subAddress, (uint8_t*) temp_dest, count);
+    uint8_t temp_dest[count];
+    i2c_read(address, subAddress, temp_dest, count);
 
     //i2c doesn't take uint8_ts, but rather chars so do this nasty af conversion
     for (i=0; i < count; i++) {

@@ -36,14 +36,14 @@ Distributed as-is; no warranty is given.
 #define INT1_CTRL           0x0C
 #define INT2_CTRL           0x0D
 #define WHO_AM_I_XG         0x0F
-#define CTRL_REG1_G         0x10 // 0x68
+#define CTRL_REG1_G         0x10
 #define CTRL_REG2_G         0x11
 #define CTRL_REG3_G         0x12
 #define ORIENT_CFG_G        0x13
 #define INT_GEN_SRC_G       0x14
 #define OUT_TEMP_L          0x15
-#define OUT_TEMP_H          0x16 // 0xF0
-#define STATUS_REG_0        0x17 // 0xFF
+#define OUT_TEMP_H          0x16
+#define STATUS_REG_0        0x17
 #define OUT_X_L_G           0x18
 #define OUT_X_H_G           0x19
 #define OUT_Y_L_G           0x1A
