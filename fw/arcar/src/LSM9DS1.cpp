@@ -960,39 +960,30 @@ void LSM9DS1::constrainScales()
     }
 }
 
-
-
-
-
-
 void LSM9DS1::xgWriteByte(uint8_t subAddress, uint8_t data)
 {
-    //I2CwriteByte(_xgAddress, subAddress, data);
     i2c_write(_xgAddress, subAddress, &data, 1);
 }
 
 void LSM9DS1::mWriteByte(uint8_t subAddress, uint8_t data)
 {
-    //I2CwriteByte(_mAddress, subAddress, data);
     i2c_write(_mAddress, subAddress, &data, 1);
 }
 
 uint8_t LSM9DS1::xgReadByte(uint8_t subAddress)
 {
-    //return I2CreadByte(_xgAddress, subAddress);
     char data;
     i2c_read(_xgAddress, subAddress, (uint8_t *) &data, 1);
     return data;
 }
 
-void LSM9DS1::xgReadBytes(uint8_t subAddress, uint8_t * dest, uint8_t count)
+void LSM9DS1::xgReadBytes(uint8_t subAddress, uint8_t *dest, uint8_t count)
 {
     I2CreadBytes(_xgAddress, subAddress, dest, count);
 }
 
 uint8_t LSM9DS1::mReadByte(uint8_t subAddress)
 {
-    //return (uint8_t) I2CreadByte(_mAddress, subAddress);
     char data;
     i2c_read(_mAddress, subAddress, (uint8_t *) &data, 1);
     return data;
@@ -1003,17 +994,8 @@ void LSM9DS1::mReadBytes(uint8_t subAddress, uint8_t *dest, uint8_t count)
     I2CreadBytes(_mAddress, subAddress, dest, count);
 }
 
-
-
-uint8_t LSM9DS1::I2CreadBytes(uint8_t address, uint8_t subAddress, uint8_t * dest, uint8_t count)
+void LSM9DS1::I2CreadBytes(uint8_t address, uint8_t subAddress, uint8_t *dest, uint8_t count)
 {
-    int i;
-    uint8_t temp_dest[count];
-    i2c_read(address, subAddress, temp_dest, count);
-
-    //i2c doesn't take uint8_ts, but rather chars so do this nasty af conversion
-    for (i=0; i < count; i++) {
-        dest[i] = temp_dest[i];
-    }
-    return count;
+    i2c_read(address, subAddress, dest, count);
+    for (uint8_t i=0; i < 1; i++); // for good call function
 }
