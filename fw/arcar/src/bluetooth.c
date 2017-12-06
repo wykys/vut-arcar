@@ -46,6 +46,9 @@ void bluetooth_init(void)
 
 void bluetooth_putc(unsigned char data)
 {
+    // wait to empty RN4871 buffer
+    if (data == '\n')
+        _delay_ms(160);
     // Wait for empty transmit buffer
     while ( !( UCSR0A & (1<<UDRE0)) );
     // Put data into buffer, sends the data
