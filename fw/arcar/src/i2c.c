@@ -141,7 +141,7 @@ state_t i2c_write(uint8_t addr_dev, uint8_t addr_reg, uint8_t *data, uint8_t siz
 state_t i2c_read(uint8_t addr_dev, uint8_t addr_reg, uint8_t *data, uint8_t size)
 {
     uint8_t i;
-
+    
     if (i2c_send_address(addr_dev, I2C_WRITE) == ERROR)
         return ERROR;
 
