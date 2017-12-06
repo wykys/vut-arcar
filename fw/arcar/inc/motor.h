@@ -3,18 +3,15 @@
  *
  * autor: wykys
  * verze: 1.0
- * datum: 2.11.2017
+ * datum: 5.12.2017
  */
 
 #ifndef WYK_MOTOR_H_INCLUDED
 #define WYK_MOTOR_H_INCLUDED
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 #include "settings.h"
 #include <avr/io.h>
+#include <util/delay.h>
 
 #define MOTOR_ERR_PIN  (1<<PB0)
 #define MOTOR_DIR_PIN  (1<<PB1)
@@ -24,17 +21,26 @@ extern "C" {
 #define MOTOR_PIN   PINB
 #define MOTOR_PORT  PORTB
 
-#define MOTOR_DIRECTION_FORWARD 1
-#define MOTOR_DIRECTION_REAR 0
+#define MOTOR_TIMER_TOP 255
+
+#define MOTOR_DIRECTION_FORVARD true
+#define MOTOR_DIRECTION_REVERS  false
 
 // ========================================================
-void motor_init(void);
-void motor_power(uint8_t power, uint8_t direction);
-void motor_forward(uint8_t power);
-void motor_reverse(uint8_t power);
+class Motor
+{
+public:
+    Motor(uint8_t power=0, bool directon=MOTOR_DIRECTION_FORVARD);
+    void forward(uint8_t power);
+    void reverse(uint8_t power);
+    void stop();
+    void fast_stop();
+    uint8_t get_power();
+    bool get_directon();
+private:
+    bool direction;
+    uint8_t power;
+};
 // ========================================================
 
-#ifdef __cplusplus
-}
-#endif // END C++
 #endif // WYK_MOTOR_H_INCLUDED
