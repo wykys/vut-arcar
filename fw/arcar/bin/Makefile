@@ -33,6 +33,7 @@ RM = rm -rf
 OPTIMIZE = -O1
 CFLAGS = -g -mmcu=$(MCU) -Wall -std=c99 -I $(LIB) $(OPTIMIZE)
 CPPFLAGS = -g -mmcu=$(MCU) -Wall -std=c++11 -I $(LIB) $(OPTIMIZE)
+AFLAGS = -mmcu=$(MCU) -Wall -x assembler-with-cpp
 
 
 
@@ -40,6 +41,7 @@ DEP = dependence.list
 
 OBJFILES = $(shell find $(SRC) -name '*.c' -printf '%f ' | sed -e 's/\.c/\.o/g')
 OBJFILES += $(shell find $(SRC) -name '*.cpp' -printf '%f ' | sed -e 's/\.cpp/\.o/g')
+OBJFILES += $(shell find $(SRC) -name '*.S' -printf '%f ' | sed -e 's/\.S/\.o/g')
 
 .PHONY: dependence clean $(NAME)
 
@@ -54,6 +56,9 @@ $(DEP): $(SRC)*.c
 -include $(DEP)
 
 # create object modules
+%.o: $(SRC)%.S
+	$(CC) -c $(AFLAGS) $< -o $@
+
 %.o : $(SRC)%.c
 	@$(CC) -c $(DEVSPEC) $(AVRLIB) $(CFLAGS) $< -o $@
 
