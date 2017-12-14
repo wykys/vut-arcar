@@ -9,13 +9,13 @@ void usb_init(void)
     UCSR1B |= 1<<RXCIE1;               // receiver interrupt
 }
 
-void usb_putc(char data)
+void usb_putc(const char data)
 {
     while ( !( UCSR1A & (1<<UDRE1)) ); // Wait for empty transmit buffer
     UDR1 = data;                       // Put data into buffer, sends the data
 }
 
-void usb_puts(char str[])
+void usb_puts(const char str[])
 {
     for (int i=0; str[i]; i++)
         usb_putc(str[i]);

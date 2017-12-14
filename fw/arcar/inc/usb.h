@@ -22,8 +22,8 @@ extern "C" {
 
 // ========================================================
 void usb_init(void);
-void usb_putc(char data);
-void usb_puts(char str[]);
+void usb_putc(const char data);
+void usb_puts(const char str[]);
 char usb_getc(void);
 // ========================================================
 
