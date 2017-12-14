@@ -41,6 +41,8 @@ void bluetooth_init(void);
 void bluetooth_putc(unsigned char data);
 void bluetooth_puts(char str[]);
 void bluetooth_cmd(char str[]);
+void bluetooth_add_mac(char mac[]);
+void bluetooth_servise(void);
 #define bluetooth_delay() _delay_ms(10)
 // ========================================================
 
