@@ -71,7 +71,7 @@ public:
     *              If IMU_MODE_SPI, this is the cs pin of the magnetometer (CS_M)
 
     */
-    LSM9DS1(uint8_t xgAddr, uint8_t mAddr);
+    LSM9DS1(uint8_t xgAddr = LSM9DS1_AG_ADDR(1), uint8_t mAddr = LSM9DS1_M_ADDR(1));
     //LSM9DS1(interface_mode interface, uint8_t xgAddr, uint8_t mAddr);
     //LSM9DS1();
 
@@ -482,21 +482,6 @@ protected:
     // Helper Functions //
     //////////////////////
     void constrainScales();
-
-    // I2CwriteByte() -- Write a byte out of I2C to a register in the device
-    // Input:
-    //  - address = The 7-bit I2C address of the slave device.
-    //  - subAddress = The register to be written to.
-    //  - data = Byte to be written to the register.
-    void I2CwriteByte(uint8_t address, uint8_t subAddress, uint8_t data);
-
-    // I2CreadByte() -- Read a single byte from a register over I2C.
-    // Input:
-    //  - address = The 7-bit I2C address of the slave device.
-    //  - subAddress = The register to be read from.
-    // Output:
-    //  - The byte read from the requested address.
-    uint8_t I2CreadByte(uint8_t address, uint8_t subAddress);
 
     // I2CreadBytes() -- Read a series of bytes, starting at a register via SPI
     // Input:
