@@ -13,5 +13,5 @@ Main board photo.
 49535343-1E4D-4BD9-BA61-23C647249616  
 ```
 
-configuration [Serial-Bluetooth](https://play.google.com/store/apps/details?id=de.kai_morich.serial_bluetooth_terminal&hl=cs)
+configuration [Serial-Bluetooth](https://play.google.com/store/apps/details?id=de.kai_morich.serial_bluetooth_terminal&hl=cs)  
 ![demo](/img/serial-bluetooth.png)
