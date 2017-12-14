@@ -37,15 +37,23 @@ ISR(USB_RX_vect)
 
 int main(void)
 {
-    led_init();
+    //bluetooth_servise();
     usb_init();
     bluetooth_init();
     i2c_init();
-    motor_init();
     _delay_ms(100);
     sei();
 
-    LSM9DS1 imu(LSM9DS1_AG_ADDR(1), LSM9DS1_M_ADDR(1));
+    LSM9DS1 imu;
+    LED led;
+    Motor motor;
+
+    motor.forward(70);
+
+    led.forward_left(true);
+    led.forward_right(true);
+    led.reverse_left(true);
+    led.reverse_right(true);
 
     if (!imu.begin())
     {
@@ -62,11 +70,9 @@ int main(void)
         imu.readGyro();
         imu.readAccel();
 
-        printf("gyro [deg/s]: %3.3f %3.3f %3.3f  ||  ", imu.calcGyro(imu.gx), imu.calcGyro(imu.gy), imu.calcGyro(imu.gz));
-        printf("accel [g]: %3.3f %3.3f %3.3f  ||  ", imu.calcAccel(imu.ax), imu.calcAccel(imu.ay), imu.calcAccel(imu.az));
-        printf("mag [gauss]: %3.3f %3.3f %3.3f  ||  ", imu.calcMag(imu.mx), imu.calcMag(imu.my), imu.calcMag(imu.mz));
-        printf("temp [degC]: %4.3f\n", 25.0  + ((double)imu.temperature) / 16.0);
-
-        _delay_ms(50);
+        printf("deg/s: %3.0f %3.0f %3.0f  |  ", imu.calcGyro(imu.gx), imu.calcGyro(imu.gy), imu.calcGyro(imu.gz));
+        printf("a [g]: %2.1f %2.1f %2.1f  |  ", imu.calcAccel(imu.ax), imu.calcAccel(imu.ay), imu.calcAccel(imu.az));
+        printf("B [uT]: %4.0f %4.0f %4.0f  |  ", imu.calcMag(imu.mx)*100, imu.calcMag(imu.my)*100, imu.calcMag(imu.mz)*100);
+        printf("T [C]: %2.1f\n", 25.0  + ((double)imu.temperature) / 16.0);
     }
 }
