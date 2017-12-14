@@ -1,6 +1,6 @@
 #include "bluetooth.h"
 
-void bluetooth_add_mac(char mac[])
+void bluetooth_add_mac(const char mac[])
 {
     uint8_t i;
     bluetooth_putc('J'); bluetooth_delay();
@@ -91,7 +91,7 @@ void bluetooth_servise(void)
     }
 }
 
-void bluetooth_putc(unsigned char data)
+void bluetooth_putc(const unsigned char data)
 {
     // wait to empty RN4871 buffer
     if (data == '\n')
@@ -102,13 +102,13 @@ void bluetooth_putc(unsigned char data)
     UDR0 = data;
 }
 
-void bluetooth_puts(char str[])
+void bluetooth_puts(const char str[])
 {
     for (int i=0; str[i]; i++)
         bluetooth_putc(str[i]);
 }
 
-void bluetooth_cmd(char str[])
+void bluetooth_cmd(const char str[])
 {
     for (int i=0; str[i]; i++)
     {
