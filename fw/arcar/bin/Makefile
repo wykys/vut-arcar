@@ -12,14 +12,12 @@ MCU = atmega328pb
 # Atmel Device Family Packs (DFP) for new devices support.
 # http://packs.download.atmel.com/
 DFP = ../../../sw/Atmel.ATmega_DFP.1.2.150/
-DFP = /home/wykys/projects/vut-arcar/sw/Atmel.ATmega_DFP.1.2.150/
 DEVSPEC = -B $(DFP)gcc/dev/$(MCU)
 AVRLIB = -I $(DFP)include
 
 # Atmel AVR 8-bit Toolchain 3.5.4
 # http://www.atmel.com/tools/ATMELAVRTOOLCHAINFORLINUX.aspx
 TOOLCHAIN = ../../../sw/avr8-gnu-toolchain-linux_x86_64/
-TOOLCHAIN = /home/wykys/projects/vut-arcar/sw/avr8-gnu-toolchain-linux_x86_64/
 TOOLS = $(TOOLCHAIN)bin/
 
 CC = $(TOOLS)avr-gcc -fdiagnostics-color=always
