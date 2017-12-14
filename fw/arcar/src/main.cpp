@@ -1,16 +1,8 @@
 #include "settings.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
-
-#ifdef __cplusplus
-}
-#endif
 
 #include "i2c.h"
 #include "led.h"
