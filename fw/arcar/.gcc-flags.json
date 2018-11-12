@@ -1,8 +1,0 @@
-{
-  "execPath": "../../sw/avr8-gnu-toolchain-linux_x86_64/bin/avr-gcc",
-  "gccDefaultCFlags": "-mmcu=atmega328pb -Wall -std=c99 -O1 -B /home/wykys/projects/vut-arcar/sw/Atmel.ATmega_DFP.1.2.150/gcc/dev/atmega328pb -I /home/wykys/projects/vut-arcar/sw/Atmel.ATmega_DFP.1.2.150/include",
-  "gccDefaultCppFlags": "-Wall -std=c++11",
-  "gccErrorLimit": 15,
-  "gccIncludePaths": "./inc",
-  "gccSuppressWarnings": true
-}

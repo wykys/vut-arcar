@@ -29,7 +29,7 @@ ISR(USB_RX_vect)
 
 int main(void)
 {
-    //bluetooth_servise();
+    // bluetooth_servise();
     usb_init();
     bluetooth_init();
     i2c_init();
@@ -40,7 +40,7 @@ int main(void)
     LED led;
     Motor motor;
 
-    motor.forward(70);
+    motor.forward(75);
 
     led.forward_left(true);
     led.forward_right(true);
@@ -49,8 +49,9 @@ int main(void)
 
     if (!imu.begin())
     {
-        usb_puts((char*)"Failed to communicate with LSM9DS1.\n");
-        while(1);
+        usb_puts((char *) "Failed to communicate with LSM9DS1.\n");
+        while (1)
+            ;
     }
 
     imu.calibrate();
@@ -64,7 +65,7 @@ int main(void)
 
         printf("deg/s: %3.0f %3.0f %3.0f  |  ", imu.calcGyro(imu.gx), imu.calcGyro(imu.gy), imu.calcGyro(imu.gz));
         printf("a [g]: %2.1f %2.1f %2.1f  |  ", imu.calcAccel(imu.ax), imu.calcAccel(imu.ay), imu.calcAccel(imu.az));
-        printf("B [uT]: %4.0f %4.0f %4.0f  |  ", imu.calcMag(imu.mx)*100, imu.calcMag(imu.my)*100, imu.calcMag(imu.mz)*100);
-        printf("T [C]: %2.1f\n", 25.0  + ((double)imu.temperature) / 16.0);
+        printf("B [uT]: %4.0f %4.0f %4.0f  |  ", imu.calcMag(imu.mx) * 100, imu.calcMag(imu.my) * 100, imu.calcMag(imu.mz) * 100);
+        printf("T [C]: %2.1f\n", 25.0 + ((double) imu.temperature) / 16.0);
     }
-}
+} // main
